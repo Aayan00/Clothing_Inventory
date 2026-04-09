@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="fas fa-warehouse me-2"></i>Inventory</h2>
+    <a href="{{ url_for('add_item') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Add Item</a>
+</div>
+
+<!-- Search and Filter Bar -->
+<div class="row mb-3">
+    <div class="col-md-6">
+        <div class="input-group">
+            <span class="input-group-text"><i class="fas fa-search"></i></span>
+            <input type="text" id="searchInput" class="form-control" placeholder="Search by name, category, color...">
+        </div>
+    </div>
+    <div class="col-md-3">
+        <select id="categoryFilter" class="form-select">
+            <option value="">All Categories</option>
+            <option value="Traditional">Traditional</option>
+            <option value="Western">Western</option>
+            <option value="Casual">Casual</option>
+            <option value="Sportswear">Sportswear</option>
+            <option value="Formal">Formal</option>
+        </select>
+    </div>
+    <div class="col-md-3 text-end">
+        <button id="refreshBtn" class="btn btn-outline-secondary"><i class="fas fa-sync-alt"></i> Refresh</button>
+    </div>
+</div>
+
+<!-- Inventory Table -->
+<div class="table-responsive">
+    <table class="table table-hover align-middle" id="inventoryTable">
+        <thead class="table-light">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Size</th>
+                <th>Color</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            <!-- Data will be loaded via JavaScript -->
+            <tr><td colspan="8" class="text-center"><div class="spinner-border text-primary" role="status"></div> Loading...</td></tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/inventory.js') }}"></script>
+{% endblock %}

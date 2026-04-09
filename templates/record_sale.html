@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>💰 Record a Sale</h2>
+<form method="POST" class="mt-3">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+        {{ form.item_id.label(class="form-label") }}
+        {{ form.item_id(class="form-select") }}
+    </div>
+    <div class="mb-3">
+        {{ form.quantity_sold.label(class="form-label") }}
+        {{ form.quantity_sold(class="form-control") }}
+    </div>
+    {{ form.submit(class="btn btn-warning") }}
+    <a href="{{ url_for('inventory') }}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

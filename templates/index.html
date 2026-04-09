@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Welcome to ClothStack</h1>
+        <p class="col-md-8 fs-4">Manage your clothing inventory with ease. Track traditional, western, casual, and more.</p>
+        <a href="{{ url_for('inventory') }}" class="btn btn-primary btn-lg">View Inventory</a>
+        <a href="{{ url_for('dashboard') }}" class="btn btn-outline-secondary btn-lg ms-2">Analytics Dashboard</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title"><i class="bi bi-tags"></i> Categories</h5>
+                <ul class="list-unstyled">
+                    <li>👘 Traditional</li>
+                    <li>👔 Western</li>
+                    <li>👕 Casual</li>
+                    <li>🏃 Sportswear</li>
+                    <li>🤵 Formal</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title"><i class="bi bi-bar-chart"></i> Quick Stats</h5>
+                <p>Total Items: {{ items_count if items_count else 0 }}</p>
+                <!-- Optional: add more stats -->
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title"><i class="bi bi-plus-circle"></i> Actions</h5>
+                <a href="{{ url_for('add_item') }}" class="btn btn-outline-success btn-sm">Add New Item</a>
+                <a href="{{ url_for('record_sale') }}" class="btn btn-outline-warning btn-sm">Record Sale</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

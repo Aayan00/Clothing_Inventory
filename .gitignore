@@ -1,0 +1,23 @@
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Database file (optional – you might want to exclude the actual data)
+clothing_inventory.db
+
+# IDE settings
+.idea/
+.vscode/
+
+# Flask instance
+instance/
+
+# OS files
+.DS_Store
+Thumbs.db
